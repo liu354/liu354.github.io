@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/faviconfavicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="lulula" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="3、一个数组 par 中存放有多个人员的信息，每个人员的信息由年龄 age 和姓名 name 组成，如{age: 2, name: ‘xx’}。请写一段 JS 程序，对这个数组按年龄从小到大进行排序。 优化： 12345function parSort(par) &amp;#123;    return par.sort(function(arr1, arr2) &amp;#123;        return">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js刷题记录">
+<meta property="og:url" content="http://yoursite.com/2018/02/10/js刷题记录/index.html">
+<meta property="og:site_name" content="lulula">
+<meta property="og:description" content="3、一个数组 par 中存放有多个人员的信息，每个人员的信息由年龄 age 和姓名 name 组成，如{age: 2, name: ‘xx’}。请写一段 JS 程序，对这个数组按年龄从小到大进行排序。 优化： 12345function parSort(par) &amp;#123;    return par.sort(function(arr1, arr2) &amp;#123;        return">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-10T11:26:28.232Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js刷题记录">
+<meta name="twitter:description" content="3、一个数组 par 中存放有多个人员的信息，每个人员的信息由年龄 age 和姓名 name 组成，如{age: 2, name: ‘xx’}。请写一段 JS 程序，对这个数组按年龄从小到大进行排序。 优化： 12345function parSort(par) &amp;#123;    return par.sort(function(arr1, arr2) &amp;#123;        return">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/10/js刷题记录/"/>
+
+
+
+
+
+  <title>js刷题记录 | lulula</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lulula</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/10/js刷题记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lulula">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lulula">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js刷题记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-10T16:36:31+08:00">
+                2018-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>3、一个数组 par 中存放有多个人员的信息，每个人员的信息由年龄 age 和姓名 name 组成，如{age: 2, name: ‘xx’}。请写一段 JS 程序，对这个数组按年龄从小到大进行排序。</p>
+<p>优化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function parSort(par) &#123;</span><br><span class="line">    return par.sort(function(arr1, arr2) &#123;</span><br><span class="line">        return arr1.age &gt; arr2.age ? -1 : 1;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4、有字符串 var = ‘abc345efgabcab’，请写出 3 条 JS 语句分别实现如下 3 个功能：<br>1）去掉字符串中的a、b、c 字符，形成结果：’345efg’<br>2）将字符串中的数字用中括号括起来，形成结果：’abc3[5]efgabcab’<br>3）将字符串中的每个数字的值分别乘以 2，形成结果：’abc6810efgabcab’</p>
+<p>我的：</p>
+<pre><code>var str= &apos;abc345efgabcab&apos;;
+var arrStr=str.split(&apos;&apos;);
+var result= arrStr.filter(function(s){
+    return s==&apos;a&apos; || s==&apos;b&apos; || s==&apos;c&apos;?&apos;&apos;:s
+}).join(&apos;&apos;)
+
+var result=[];
+arrStr.forEach(function(s){
+    var num=s;
+    if(Number(s)==s){
+        num=&apos;[&apos;+num+&apos;]&apos;
+    }
+    result.push(num)
+})
+result.join(&apos;&apos;);
+</code></pre><p>这个时候对正则表达式还不了解，看了别人的发现用正则表达式会非常简洁</p>
+<p>优化：</p>
+<pre><code>// 1)
+str.replace(/([a-c])/g, &apos;&apos;);
+// 2)
+str.replace(/(\d)/g, &apos;[$1]&apos;);
+// 3)
+str.replace(/(\d)/g, function(num) {return num*2;});
+</code></pre><p>5、请写一段 JS 程序类，定义一个列表类List，该类包含两个成员：属性 length（表示列表中的元素个数）和方法 add （像列表中添加元素），其中要求构造函数和 add 方法的参数为动态参数。</p>
+<p>我的：</p>
+<pre><code>function List() {
+        this.data = [];
+        for(var i in arguments){
+            this.data.push(arguments[i])
+        }
+        this.length = this.data.length;
+        this.add = function () {
+            for(var i in arguments){
+                this.data.push(arguments[i])
+                this.length++;
+            }
+        }
+    }
+    var newlist = new List(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;);
+    //newlist.add(&apos;a&apos;, &apos;b&apos;)
+</code></pre><p>arguments对象不是一个 Array 。它类似于Array，但除了length属性和索引元素之外没有任何Array属性</p>
+<p>6、请问这个 JS 程序有什么问题？应该如何优化？</p>
+<pre><code>function setStyle(element) {
+    element.style.fontWeight = &quot;bold&quot;;
+    element.style.textDecoration = &quot;none&quot;;
+    element.style.color = &quot;#000000&quot;;
+}
+</code></pre><p>优化：</p>
+<pre><code>function setStyle(element) {
+    if (!element.style) {
+        return;
+    }
+    var eleStyle = element.style;
+    eleStyle.fontWeight = &quot;bold&quot;;
+    eleStyle.textDecoration = &quot;none&quot;;
+    eleStyle.color = &quot;#000000&quot;;
+}
+</code></pre><p>7、请写出一下正则表达式：<br>1）匹配一个全部是数字的字符串<br>2）提取一个 url 所使用的协议类型如 http、ftp 和 host 名称</p>
+<p>我的：</p>
+<pre><code>var patt1= /^\d+$/
+var patt2 = /^(\w+):\/\/w*\.?(\w+)\.\w+\/.*\.(\w+)/;
+</code></pre><p>8、请使用闭包的方式，写一段 JS 程序实现如下功能：函数每调用一次则该函数的返回值加 1。</p>
+<p>我的：</p>
+<pre><code>function creatSumFun(){
+        var s=0;
+        return function(){
+            return ++s;
+        }
+    }
+    var sumFun=creatSumFun();
+    sumFun();
+</code></pre><p>9、请写出下面 JS 程序中几个 document.write 的结果：</p>
+<pre><code>function Parent() {
+    this.a = 1;
+    this.b = [1, 2, this.a];
+    this.c = {demo: 5};
+    this.show = function() {
+        document.write(this.a + &apos; &apos; + this.c.demo + &apos;:&apos; + this.b + &apos;&lt;br/&gt;&apos;)
+    }
+}
+function Child() {
+    this.a = 2;
+    this.change = function() {
+        this.b.push(this.a);
+        this.a = this.b.length;
+        this.c.demo = this.a++;
+    }
+}
+Child.prototype = new Parent();
+var parent = new Parent();
+var child1 = new Child();
+var child2 = new Child();
+child1.a = 11;
+child2.a = 12;
+parent.show();
+child1.show();
+child2.show();
+child1.change();
+child2.change();
+parent.show();
+child1.show();
+child2.show();
+</code></pre><p>我的：无</p>
+<p>真的是基础不行，看了好久发现是js的继承，继续努力！<br>11、请用 js 程序实现二分算法。</p>
+<pre><code>function midSearch(arr , target){
+    var low=0;
+    var heigh=arr.length-1;
+    while (low&lt;=heigh) {
+        var mid=parseInt(low+(heigh-low)/2);
+        if(target&gt;arr[mid]){ low=mid+1 }
+        if(target&lt;arr[mid]){ heigh=mid-1 }
+        if(target==arr[mid]){ return mid}
+    }
+    return low
+}
+</code></pre><p>12、有这样一个 URL：<a href="http://vip.qq.com/a.php?a=1&amp;b...，请写一段" target="_blank" rel="noopener">http://vip.qq.com/a.php?a=1&amp;b...，请写一段</a> JS 程序提取 URL 中的各个参数（参数名和参数个数不确定），将其按 key-value 形式返回到一个 json 结构中，如{a:’1’,b:’2’,c:’’,d:’xxx’,e:undefined}。</p>
+<pre><code>function getQueJson(url) {
+    var url=url.split(&apos;?&apos;);
+    var part = /\w+(=)?(\w+)*/g;
+    var str = url.match(part);
+    var json = {};
+    for (var i = 0; i &lt; str.length; i++) {
+        var s = str[i].split(&apos;=&apos;);
+    json[s[0]] = s[1]==&apos;&apos;?undefined:s[1];
+    } 
+    return json 
+}
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/10/css居中总结/" rel="next" title="css 居中总结">
+                <i class="fa fa-chevron-left"></i> css 居中总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/11/前端优化法则/" rel="prev" title="前端优化法则">
+                前端优化法则 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="lulula" />
+            
+              <p class="site-author-name" itemprop="name">lulula</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/liu354" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-gratipay "></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lulula</span>
+  <div class="powered-by">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+    本站访客数:<span id="busuanzi_value_site_pv"></span>
+  </span>
+  </div>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
