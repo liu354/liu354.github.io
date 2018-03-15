@@ -3,6 +3,30 @@
   
     
     <entry>
+      <title><![CDATA[offsetLeft,Left,clientLeft详解]]></title>
+      <url>/2018/03/15/offsetLeft-Left-clientLeft%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近写了一个滑动条，发现自己的对offsetLeft,Left,clientLeft这几个的概念还不是很清楚，于是决定细细研究下。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p><img src="http://images.cnblogs.com/cnblogs_com/panjun-donet/dhtmopos.gif" alt="这里写图片描述"></p>
+<ul>
+<li><p>client部分<br>  clientHeight:<strong>内容可视区域的高度</strong>，也就是说页面浏览器中可以看到内容的这个区域的高度(不含边框，也不包含滚动条等边线，会随窗口的显示大小改变)<br> clientLeft,clientTop: 这两个返回的是元素周围<strong>边框</strong>的厚度（border）,如果不指定一个边框或者不定位改元素,他的值就是0.</p>
+</li>
+<li><p>offset部分<br><strong>计算时都包括此对象的border，padding</strong><br>offsetLeft：获取对象左侧与定位父级之间的距离<br>offsetTop：获取对象上侧与定位父级之间的距离<br>PS：获取对象到父级的距离取决于最近的定位父级<br>offsetWidth：获取元素自身的宽度（包含边框）<br>offsetHeight：获取元素自身的高度（包含边框）<br>注：与style.top 不同，offsetLeft只可读，不可以对其进行赋值。offsetTop 返回的是数字，而 style.top 返回的是字符串，除了数字外还带有单位：px。<br>与style.width属性的区别在于:如对象的宽度设定值为百分比宽度,则无论页面变大还是变小,style.width都返回此百分比,而offsetWidth则返回在不同页面中对象的宽度值而不是百分比值</p>
+</li>
+<li><p>scroll部分<br>scrollLeft：设置或获取当前左滚的距离，即左卷的距离；<br>scrollTop：设置或获取当前上滚的距离，即上卷的距离；<br>scrollHeight：获取对象可滚动的总高度；<br>scrollWidth：获取对象可滚动的总宽度；<br>scrollHeight = content + padding；（即border之内的内容）</p>
+</li>
+</ul>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[jq实现预览查看插件]]></title>
       <url>/2018/03/08/jq%E5%AE%9E%E7%8E%B0%E9%A2%84%E8%A7%88%E6%9F%A5%E7%9C%8B%E6%8F%92%E4%BB%B6/</url>
       <content type="html"><![CDATA[<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>鼠标移到缩略图上会显示该图的大图，并且大图跟随鼠标移动；或是移动到提示文字上，也可以显示图片。并且含有方向判别功能，具体来说就是如果缩略图在页面的左半部分，则大图显示在鼠标的右侧，如果缩略图在页面的右半部分，则预览的大图在鼠标的左侧显示。</p>
