@@ -3,6 +3,39 @@
   
     
     <entry>
+      <title><![CDATA[JavaScript Array对象属性方法总结]]></title>
+      <url>/2018/04/09/JavaScript-Array%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</url>
+      <content type="html"><![CDATA[<p><strong>concat()</strong></p>
+<p><code>array1.concat(array2,array3,...,arrayX)</code></p>
+<p>方法用于连接两个或多个数组。<br>该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本（<em>新数组）</em>。</p>
+<p><strong>every()</strong></p>
+<p><code>array.every(function(currentValue,index,arr), thisValue)</code></p>
+<p>every() 方法用于检测数组 <em>所有元素</em> 是否都符合指定条件（通过函数提供）。<br>every() 方法使用指定函数检测数组中的所有元素：<br>如果数组中检测到有一个元素不满足，则整个表达式返回 false ，且剩余的元素不会再进行检测。<br>如果所有元素都满足条件，则返回 true。<em>(返回值为Boolean)</em></p>
+<p><strong>fill()</strong></p>
+<p><code>array.fill(value, start, end)</code></p>
+<p>fill() 方法用于将一个固定值替换数组的元素。（改变原来的数组）<br><em>注意</em> : IE 11 及更早版本不支持 fill() 方法。</p>
+<p><strong>filter()</strong></p>
+<p><code>array.filter(function(currentValue,index,arr), thisValue)</code></p>
+<p>filter() 方法创建一个<em>新的数组</em>，新数组中的元素是通过检查指定数组中符合条件的所有元素。如果没有符合条件的元素则返回空数组。</p>
+<p><strong>find() </strong></p>
+<p><code>array.find(function(currentValue, index, arr),thisValue)</code></p>
+<p>返回传入一个测试条件（函数）符合条件的数组第一个元素。<br>当数组中的元素在测试条件时返回 true 时, find() 返回符合条件的元素，之后的值不会再调用执行函数。<br>返回符合测试条件的第一个数组 <em>元素索引值</em> ，如果没有符合条件的则返回 undefined</p>
+<p><strong>findIndex()</strong> </p>
+<p><code>array.findIndex(function(currentValue, index, arr), thisValue)</code></p>
+<p>返回传入一个测试条件（函数）符合条件的数组第一个元素位置。<br>当数组中的元素在测试条件时返回 true 时, findIndex() 返回符合条件的元素的索引位置，之后的值不会再调用执行函数。<br>如果没有符合条件的元素返回 -1</p>
+<p><strong>总结</strong><br>every方法需要所有的元素都满足，返回布尔值，filter方法返回所有满足条件的元素，返回一个新数组，find方法返回符合测试条件的第一个元素，没有返回undefined，而findIndex方法的区别在于没有符合条件是返回的是-1</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[offsetLeft,Left,clientLeft详解]]></title>
       <url>/2018/03/15/offsetLeft-Left-clientLeft%E8%AF%A6%E8%A7%A3/</url>
       <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近写了一个滑动条，发现自己的对offsetLeft,Left,clientLeft这几个的概念还不是很清楚，于是决定细细研究下。</p>
